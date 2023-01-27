@@ -6,3 +6,5 @@ export const reset = createAction('reset');
 
 
 export const customIncrement = createAction('customincrement', props<{value:number}>());
+
+export const changeText = createAction('changeText');
