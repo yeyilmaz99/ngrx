@@ -14,6 +14,7 @@
                     <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,9 @@
                     <td>{{post.id}}</td>
                     <td>{{post.title}}</td>
                     <td>{{post.description}}</td>
+                    <td>
+                        <a [routerLink]="['edit', post.id]" class="btn btn-primary">Update</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
