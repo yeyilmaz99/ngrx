@@ -1,18 +1,20 @@
 <div class="row">
     <div class="col-md-12">
-        <h3>Add Posts</h3>
+        <h3>Update Post</h3>
         <hr>
-        <form [formGroup]="postForm">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="">Title</label>
                 <input formControlName="title" type="text" class="form-control">
             </div>
+            <div>{{showTitleErrors()}}</div>
             <!-- <div>{{showTitleErrors()}}</div> -->
             <div class="mb-3">
                 <label for="">Description</label>
                 <textarea formControlName="description" class="form-control"></textarea>
                 <!-- <div>{{showDescriptionErrors()}}</div> -->
             </div>
+            <div>{{showDescriptionErrors()}}</div>
             <div class="my-3">
                 <button class="btn btn-success" type="submit">Update Post</button>
             </div>
