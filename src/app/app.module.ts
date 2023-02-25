@@ -10,6 +10,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { appReducer } from './store/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { appReducer } from './store/app.state';
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
     }),
-    FormsModule
+    FormsModule,
+    EffectsModule.forRoot([]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
