@@ -37,6 +37,8 @@ export class AuthService {
                 return 'Email not found';
             case 'INVALID_PASSWORD':
                 return 'Invalid Password';
+            case 'EMAIL_EXISTS':
+                return 'Email is already exists'
             default:
                 return 'Unknown Error Occured, Please try again later';
         }
