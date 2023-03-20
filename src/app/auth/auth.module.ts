@@ -30,7 +30,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         ReactiveFormsModule,
-        EffectsModule.forFeature([AuthEffects])
+        EffectsModule.forFeature()
     ],
 
 })
