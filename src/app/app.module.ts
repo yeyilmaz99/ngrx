@@ -13,6 +13,7 @@ import { appReducer } from './store/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component'
+import { AuthEffects } from './auth/state/auth.effects';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,12 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
     }),
     FormsModule,
-    EffectsModule.forRoot([]),
     HttpClientModule
   ],
   providers: [],
