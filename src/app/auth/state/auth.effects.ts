@@ -86,7 +86,7 @@ export class AuthEffects {
 
   logout$ = createEffect(() => {
     return this.actions$.pipe(ofType(autoLogout), map((action) => {
-      this.authService.logout();
+      this.authService.logout(); 
       this.router.navigate(['auth'])
     }))
   }, {dispatch:false})
