@@ -29,7 +29,7 @@ export class AuthService {
     formatUser(data: AuthResponseData) {
         const expirationDate = new Date(
             new Date().getTime() + +data.expiresIn * 1000
-        );
+          );
         const user = new User(data.email, data.idToken, data.localId, expirationDate)
         return user;
     }
@@ -64,11 +64,10 @@ export class AuthService {
 
     runTimeoutInterval(user: User){
         const todaysDate = new Date().getTime();
-        const expirationDate = user.expireDate.getTime();
+        const expirationDate = user.expireDate.getTime()
         const timeInterval = expirationDate - todaysDate;
-
         this.timeoutInterval = setTimeout(() => {
-            this.store.dispatch(autoLogout( ))
+            this.store.dispatch(autoLogout())
             //logout func or get the refresh token
         },timeInterval)
     }
@@ -87,7 +86,7 @@ export class AuthService {
     }
 
     logout(){
-        localStorage.removeItem('userDate');
+        localStorage.removeItem('userData');
         if(this.timeoutInterval){
             clearTimeout(this.timeoutInterval);
             this.timeoutInterval = null;
