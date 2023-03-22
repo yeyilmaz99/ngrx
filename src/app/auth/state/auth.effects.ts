@@ -6,7 +6,7 @@ import { catchError, exhaustMap, map, mergeMap, of, tap } from "rxjs";
 import { AuthService } from "src/app/services/auth.service";
 import { AppState } from "src/app/store/app.state";
 import { setErrorMessage, setLoadingSpinner } from "src/app/store/shared/shared.actions";
-import { autoLogin, loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.actions";
+import { autoLogin, autoLogout, loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.actions";
 
 
 
@@ -77,11 +77,18 @@ export class AuthEffects {
   })
 
   autoLogin$ = createEffect(() => {
-    return this.actions$.pipe(ofType(autoLogin), map((action) => {
+    return this.actions$.pipe(ofType(autoLogin), mergeMap((action) => {
       const user = this.authService.getUserFromLocalStorage();
-      console.log(user);
+      return of(loginSuccess({user}))
     })
     )
-  },{dispatch:false})
+  })
+
+  logout$ = createEffect(() => {
+    return this.actions$.pipe(ofType(autoLogout), map((action) => {
+      this.authService.logout();
+      this.router.navigate(['auth'])
+    }))
+  }, {dispatch:false})
 
 }
