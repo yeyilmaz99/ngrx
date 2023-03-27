@@ -21,12 +21,12 @@ export const loginStart = createAction(
   );
 
 
-export const loginSuccess = createAction(LOGIN_SUCCESS, props<{user:User}>())
+export const loginSuccess = createAction(LOGIN_SUCCESS, props<{user:User , redirect:boolean}>())
 
 export const loginFail = createAction(LOGIN_FAIL)
 
 export const signupStart = createAction(SIGNUP_START, props<{email:string; password:string}>())
-export const signupSuccess = createAction(SIGNUP_SUCCESS, props<{user:User}>())
+export const signupSuccess = createAction(SIGNUP_SUCCESS, props<{user:User, redirect:boolean}>())
 
 export const autoLogin = createAction(AUTO_LOGIN_ACTION);
 export const autoLogout = createAction(LOGOUT_ACTION);
