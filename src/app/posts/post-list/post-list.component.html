@@ -25,6 +25,7 @@
                     <td>
                         <a [routerLink]="['edit', post.id]" class="btn btn-primary">Update</a>
                         <button class="btn btn-danger" (click)="onDeletePost(post.id)">Delete</button>
+                        <a [routerLink]="['details', post.id]" class="btn btn-info">Details</a>
                     </td>
                 </tr>
             </tbody>
