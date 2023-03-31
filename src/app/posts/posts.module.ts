@@ -10,6 +10,7 @@ import { PostListComponent } from "./post-list/post-list.component";
 import { PostsEffects } from "./state/posts.effects";
 import { postsReducer } from "./state/posts.reducer";
 import { POST_STATE_NAME } from "./state/posts.selector";
+import { SinglePostComponent } from './single-post/single-post.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
         PostListComponent,
         AddPostComponent,
         EditPostComponent,
+        SinglePostComponent,
     ],
 
     imports: [
