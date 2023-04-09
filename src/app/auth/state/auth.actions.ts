@@ -30,3 +30,5 @@ export const signupSuccess = createAction(SIGNUP_SUCCESS, props<{user:User, redi
 
 export const autoLogin = createAction(AUTO_LOGIN_ACTION);
 export const autoLogout = createAction(LOGOUT_ACTION);
+
+export const dummyAction =createAction('[dummy action]')
