@@ -41,7 +41,7 @@ export class PostsEffects {
       ofType(loadPosts),
       withLatestFrom(this.store.select(getPosts)),
       mergeMap(([action,posts]) => {
-        if(!posts.length){
+        if(!posts.length || posts.length === 1){
           return this.postsService.getPosts().pipe(
             map((posts) => {
               return loadPostsSuccess({ posts });
